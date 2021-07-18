@@ -1,0 +1,14 @@
+<div class="home-page-wrapper">
+    <div class="weather-block app-max-width weather-app-row" *ngIf="citiesWeatherData">
+        <div *ngFor="let cityData of citiesWeatherData.list; let i=index" class="home-item-grid weather-app-50">
+            <div class="single-city-list" (click)="goToDetailedPage(cityData.id)">
+                <div class="city-name">{{cityData.name}}
+                </div>
+                <div class="avg-temp-block">
+                    <div class="avg-temp app-flex-50 ">Average Temp <span class="avg-temp-block-text">{{cityData.main.temp}}&deg;C</span></div>
+                    <div class="wind-strength app-flex-50 ">Wind Strength <span class="avg-temp-block-text">{{cityData.wind.speed}} km/h</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

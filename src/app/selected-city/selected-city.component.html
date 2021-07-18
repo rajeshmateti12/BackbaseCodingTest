@@ -1,0 +1,20 @@
+<div class="selected-page-wrapper" *ngIf="selectedCityData && filteredData">
+    <div class="selected-city-block app-max-width row">
+        <div class="selected-city-heading">Next 5 days forecast of {{selectedCityData.city.name}}
+        </div>
+        <div class="weather-forecast-wrapper" *ngIf="forecastData">
+            <div class="weather-forecast-item" *ngFor="let forecastItem of forecastData">
+                <div class="weather-date">{{forecastItem.date}}</div>
+                <ul class="weather-forecast-ul">
+                    <li class="weather-forecast-list" *ngFor="let forecastListElm of forecastItem.forecast">
+                        <div class="weather-forecast-block">
+                            <div class="clearsky" [ngClass]="forecastListElm[1] | removeSpaceFromClass"></div>
+                            <div class="forecat-flex-50">{{forecastListElm[0].substring(0, forecastListElm[0].length-3)}}</div>
+                            <div class="forecat-flex-50 forecast-value">{{forecastListElm[1]}}</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
